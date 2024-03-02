@@ -1,0 +1,75 @@
+# hemsouvanh-composers.yaml description: This file serves as a specification for the Composer API.
+# It details endpoints, expected, inputs, and outputs. Generates interactive API docs and client SDKs.
+# Author(s): Brock Hemsouvanh with heavy influcence from Professor Richard Krasso, as well as https://swagger.io/docs/specification/grouping-operations-with-tags/
+# Date: 01-28-2024
+
+openapi: 3.0.0
+info:
+  title: Composer API
+  version: "1.0.0"
+paths:
+  /composers:
+    get:
+      tags:
+        - Composers
+      summary: returns a list of composer documents
+      responses:
+        '200':
+          description: A list of composers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Composer'
+        '500':
+          description: Server Exceptions
+        '501':
+          description: MongoDB Exceptions
+    post:
+      tags:
+        - Composers
+      summary: Creates a new composer object
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Composer'
+      responses:
+        '200':
+          description: New composer created
+        '500':
+          description: Server Exceptions
+        '501':
+          description: MongoDB Exceptions
+  /composers/{id}:
+    get:
+      tags:
+        - Composers
+      summary: returns a composer document
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Composer found by ID
+        '500':
+          description: Server Exceptions
+        '501':
+          description: MongoDB Exceptions
+components:
+  schemas:
+    Composer:
+      type: object
+      required:
+        - firstName
+        - lastName
+      properties:
+        firstName:
+          type: string
+        lastName:
+          type: string
