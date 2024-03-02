@@ -146,7 +146,6 @@ router.post('/composers', async (req, res) => {
     }
 });
 
-// PUT operation to update a composer by ID
 /**
  * @openapi
  * /api/composers/{id}:
@@ -202,7 +201,6 @@ router.put('/:id', async (req, res) => {
     }
   });
   
-  // DELETE operation to delete a composer by ID
   /**
    * @openapi
    * /api/composers/{id}:
