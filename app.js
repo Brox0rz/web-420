@@ -43,9 +43,31 @@ const options = {
       title: 'WEB 420 RESTful APIs',
       version: '1.0.0',
     },
+    components: {
+      schemas: {
+        playerSchema: {
+          type: 'object',
+          properties: {
+            firstName: {
+              type: 'string',
+              example: 'John',
+            },
+            lastName: {
+              type: 'string',
+              example: 'Doe',
+            },
+            salary: {
+              type: 'number',
+              example: 50000,
+            },
+          },
+        },
+      },
+    },
   },
   apis: ['./routes/*.js'], // Files containing annotations for the OpenAPI Specification
 };
+
 
 const openapiSpecification = swaggerJsdoc(options);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(openapiSpecification));
@@ -67,6 +89,8 @@ app.use('/api/users', userRoutes);
 const customerRoutes = require('./routes/hemsouvanh-node-shopper-routes');
 app.use('/api/customers', customerRoutes);
 
+const teamRoutes = require('./routes/hemsouvanh-team-routes');
+app.use('/api/teams', teamRoutes);
 
 // Server listening
 app.listen(port, () => {
