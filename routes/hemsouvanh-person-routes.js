@@ -30,7 +30,7 @@ const Person = require('../models/hemsouvanh-person');
  *       501:
  *         description: MongoDB Exception
  */
-router.get('/persons', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const persons = await Person.find();
         res.status(200).json(persons);
@@ -76,7 +76,7 @@ router.get('/persons', async (req, res) => {
  *       501:
  *         description: MongoDB Exception
  */
-router.post('/persons', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const newPerson = new Person(req.body);
         const result = await newPerson.save();

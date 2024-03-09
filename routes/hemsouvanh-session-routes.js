@@ -54,7 +54,7 @@ const saltRounds = 10;
  *       '501':
  *         description: MongoDB Exception
  */
-router.post('/signup', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     // Check if username already exists
     const existingUser = await User.findOne({ userName: req.body.userName });
@@ -113,7 +113,7 @@ const newUser = new User({
  *       '501':
  *         description: MongoDB Exception
  */
-router.post('/login', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     // Find the user by username
     const user = await User.findOne({ userName: req.body.userName });

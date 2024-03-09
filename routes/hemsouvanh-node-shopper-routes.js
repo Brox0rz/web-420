@@ -42,7 +42,7 @@ const Customer = require('../models/hemsouvanh-customer');
  *       501:
  *         description: MongoDB Exception
  */
-router.post('/customers', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const newCustomer = new Customer({
       firstName: req.body.firstName,
@@ -99,7 +99,7 @@ router.post('/customers', async (req, res) => {
  *       501:
  *         description: MongoDB Exception
  */
-router.post('/customers/:username/invoices', async (req, res) => {
+router.post('/:username/invoices', async (req, res) => {
   console.log(req.body); // Troubleshooting line... print the request body to the console. The correct data is sending.
   try {
     const customer = await Customer.findOne({ userName: req.params.username });
@@ -148,7 +148,7 @@ router.post('/customers/:username/invoices', async (req, res) => {
  *       501:
  *         description: MongoDB Exception
  */
-router.get('/customers/:username/invoices', async (req, res) => {
+router.get('/:username/invoices', async (req, res) => {
   try {
     const customer = await Customer.findOne({ userName: req.params.username });
     if (!customer) {

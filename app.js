@@ -33,9 +33,6 @@ mongoose.connect(mongoDBConnectionString, {
 
 const port = process.env.PORT || 3000;
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
 const options = {
   definition: {
     openapi: '3.0.0',
@@ -91,6 +88,7 @@ app.use('/api/customers', customerRoutes);
 
 const teamRoutes = require('./routes/hemsouvanh-team-routes');
 app.use('/api/teams', teamRoutes);
+
 
 // Server listening
 app.listen(port, () => {

@@ -32,7 +32,7 @@ const router = express.Router();
  *       '501':
  *         description: MongoDB Exception.
  */
-router.get('/composers', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const composers = await Composer.find({});
         res.json(composers);
@@ -74,7 +74,7 @@ router.get('/composers', async (req, res) => {
  *       '501':
  *         description: MongoDB Exception.
  */
-router.get('/composers/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
         const composer = await Composer.findOne({ _id: req.params.id });
         if (composer) {
@@ -122,7 +122,7 @@ router.get('/composers/:id', async (req, res) => {
  *       '501':
  *         description: MongoDB Exception.
  */
-router.post('/composers', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const newComposer = {
             firstName: req.body.firstName,

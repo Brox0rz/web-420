@@ -30,7 +30,7 @@ const Team = require('../models/hemsouvanh-team');
  *       501:
  *         description: MongoDB Exception
  */
-router.get('/teams', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
       const teams = await Team.find(); // Using the Team model to fetch all teams
       res.status(200).json(teams);
@@ -84,7 +84,7 @@ router.get('/teams', async (req, res) => {
  *       501:
  *         description: MongoDB Exception
  */
-router.post('/teams/:id/players', async (req, res) => {
+router.post('/:id/players', async (req, res) => {
   try {
       const team = await Team.findOne({ _id: req.params.id });
       
@@ -142,7 +142,7 @@ router.post('/teams/:id/players', async (req, res) => {
  *       501:
  *         description: MongoDB Exception
  */
-router.post('/teams', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
       let newTeam = new Team({
           name: req.body.name,
@@ -153,6 +153,7 @@ router.post('/teams', async (req, res) => {
       await newTeam.save(); // Save the new team to the database
       res.status(200).json(newTeam); // Respond with the new team document
   } catch (error) {
+    console.error('Error caught in POST /teams:', error);
       console.error(error);
       if (error instanceof mongoose.Error) {
           res.status(501).send('MongoDB Exception');
@@ -185,7 +186,7 @@ router.post('/teams', async (req, res) => {
  *       501:
  *         description: MongoDB Exception
  */
-router.get('/teams/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
       const team = await Team.findById(req.params.id); // Using the Team model to fetch team by ID
 
@@ -227,7 +228,7 @@ router.get('/teams/:id', async (req, res) => {
  *       501:
  *         description: MongoDB Exception
  */
-router.delete('/teams/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
       const teamId = req.params.id;
       const team = await Team.findById(teamId);
