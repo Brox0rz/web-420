@@ -91,6 +91,7 @@ app.use('/api/teams', teamRoutes);
 
 
 // Server listening
-app.listen(port, () => {
-  console.log(`Application started and listening on port ${port}`);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
