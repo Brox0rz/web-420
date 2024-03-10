@@ -18,7 +18,7 @@ const Team = require('../models/hemsouvanh-team');
 // findAllTeams Operation
 /**
  * @openapi
- * /api/teams:
+ * /teams:
  *   get:
  *     summary: Retrieves an array of all teams
  *     description: Query the team collection using the find() function on the Team model.
@@ -46,7 +46,7 @@ router.get('/', async (req, res) => {
 
 /**
  * @openapi
- * /api/teams/{id}/players:
+ * /teams/{id}/players:
  *   post:
  *     summary: Assigns a player to a team
  *     description: Adds a new player to the team's player array.
@@ -112,7 +112,7 @@ router.post('/:id/players', async (req, res) => {
 
 /**
  * @openapi
- * /api/teams:
+ * /teams:
  *   post:
  *     summary: Creates a new team
  *     description: Adds a new team to the database.
@@ -165,7 +165,7 @@ router.post('/', async (req, res) => {
 
 /**
  * @openapi
- * /api/teams/{id}:
+ * /teams/{id}:
  *   get:
  *     summary: Retrieves an array of all players by team ID
  *     description: Query the team collection by team ID to return an array of player documents.
@@ -207,7 +207,7 @@ router.get('/:id', async (req, res) => {
 
 /**
  * @openapi
- * /api/teams/{id}:
+ * /teams/{id}:
  *   delete:
  *     summary: Deletes a team document by ID
  *     description: Delete the team document from the database using the deleteOne() function on the Team model.
