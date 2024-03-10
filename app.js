@@ -4,7 +4,7 @@
 ; Author: Brock Hemsouvanh
 ; Contributors: Professor Richard Krasso
 ; Updated:   04 Feb 2024
-; Description: server file for the composer app
+; Description: server file for various API applications
 ;===========================================
 */
 
@@ -30,8 +30,6 @@ mongoose.connect(mongoDBConnectionString, {
 })
 .then(() => console.log('Connected to MongoDB...'))
 .catch(err => console.error('Could not connect to MongoDB:', err));
-
-const port = process.env.PORT || 3000;
 
 const options = {
   definition: {
