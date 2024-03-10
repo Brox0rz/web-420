@@ -62,7 +62,7 @@ const options = {
       },
     },
   },
-  apis: ['./routes/*.js'], // Files containing annotations for the OpenAPI Specification
+  apis: ['./routes/team-routes.js'], // Specified for the Teams API project delivery
 };
 
 
