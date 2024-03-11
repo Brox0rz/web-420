@@ -20,6 +20,8 @@ const Customer = require('../models/hemsouvanh-customer');
  * @openapi
  * /api/customers:
  *   post:
+ *     tags:
+ *      - Customers
  *     summary: Create a new customer
  *     requestBody:
  *       required: true
