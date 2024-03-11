@@ -66,6 +66,8 @@ router.post('/', async (req, res) => {
  * @openapi
  * /api/customers/{username}/invoices:
  *   post:
+ *     tags:
+ *      - Customers
  *     summary: Create a new invoice for a customer by username
  *     parameters:
  *       - name: username
@@ -132,6 +134,8 @@ router.post('/:username/invoices', async (req, res) => {
  * @openapi
  * /api/customers/{username}/invoices:
  *   get:
+ *     tags:
+ *      - Customers
  *     summary: Get all invoices for a customer by username
  *     parameters:
  *       - name: username
