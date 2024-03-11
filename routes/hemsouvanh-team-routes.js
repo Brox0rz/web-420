@@ -20,6 +20,8 @@ const Team = require('../models/hemsouvanh-team');
  * @openapi
  * /:
  *   get:
+*     tags:
+ *      - Teams
  *     summary: Retrieves an array of all teams
  *     description: Query the team collection using the find() function on the Team model.
  *     responses:
