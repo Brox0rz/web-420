@@ -48,7 +48,7 @@ router.get('/', async (req, res) => {
 
 /**
  * @openapi
- * api/teams{id}/players:
+ * api/teams/{id}/players:
  *   post:
  *     tags:
  *      - Teams
