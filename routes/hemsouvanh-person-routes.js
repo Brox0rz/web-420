@@ -20,6 +20,8 @@ const Person = require('../models/hemsouvanh-person');
  * @openapi
  * /api/persons:
  *   get:
+ *     tags:
+ *      - Persons
  *     summary: Retrieves an array of all persons
  *     description: Query the people collection using the find() function on the Person model.
  *     responses:
