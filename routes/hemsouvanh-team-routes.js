@@ -18,7 +18,7 @@ const Team = require('../models/hemsouvanh-team');
 // findAllTeams Operation
 /**
  * @openapi
- * /:
+ * api/teams:
  *   get:
  *     tags:
  *      - Teams
@@ -48,7 +48,7 @@ router.get('/', async (req, res) => {
 
 /**
  * @openapi
- * /{id}/players:
+ * api/{id}/players:
  *   post:
  *     tags:
  *      - Teams
@@ -88,7 +88,7 @@ router.get('/', async (req, res) => {
  *       501:
  *         description: MongoDB Exception
  */
-router.post('/:id/players', async (req, res) => {
+router.post('api/:id/players', async (req, res) => {
   try {
       const team = await Team.findOne({ _id: req.params.id });
       
@@ -116,7 +116,7 @@ router.post('/:id/players', async (req, res) => {
 
 /**
  * @openapi
- * /:
+ * api/teams:
  *   post:
  *     tags:
  *      - Teams
@@ -171,7 +171,7 @@ router.post('/', async (req, res) => {
 
 /**
  * @openapi
- * /{id}:
+ * api/{id}:
  *   get:
  *     tags:
  *      - Teams
@@ -215,7 +215,7 @@ router.get('/:id', async (req, res) => {
 
 /**
  * @openapi
- * /{id}:
+ * api/teams{id}:
  *   delete:
  *     tags:
  *      - Teams
