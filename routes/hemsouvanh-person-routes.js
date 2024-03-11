@@ -51,6 +51,8 @@ router.get('/', async (req, res) => {
  * @openapi
  * /api/persons:
  *   post:
+*     tags:
+ *      - Persons
  *     summary: Creates a new person document
  *     description: Adds a new person to the people collection.
  *     requestBody:
