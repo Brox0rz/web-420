@@ -32,7 +32,7 @@ mongoose.connect(mongoDBConnectionString, {
 .catch(err => console.error('Could not connect to MongoDB:', err));
 
 app.get('/', (req, res) => {
-  res.send('Welcome to the API! For the Teams app, please add /API-docs/ to the end of the URL.');
+  res.send('Welcome to the API! To view the apps, please add /API-docs/ to the end of the URL.');
 });
 
 const options = {
@@ -64,7 +64,7 @@ const options = {
       },
     },
   },
-  apis: ['./routes/team-routes.js'], // Specified for the Teams API project delivery
+  apis: ['./routes/*.js'], // path for API projects delivery
 };
 
 
