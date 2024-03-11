@@ -31,10 +31,6 @@ mongoose.connect(mongoDBConnectionString, {
 .then(() => console.log('Connected to MongoDB...'))
 .catch(err => console.error('Could not connect to MongoDB:', err));
 
-app.get('/', (req, res) => {
-  res.send('Welcome to the API! To view the apps, please add /API-docs/ to the end of the URL.');
-});
-
 const options = {
   definition: {
     openapi: '3.0.0',
